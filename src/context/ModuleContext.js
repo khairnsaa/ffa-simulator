@@ -127,6 +127,7 @@ export const ModuleContextProvider = ({ children }) => {
             title: module.moduleTitle,
         }, {headers: {"Authorization" : `Bearer ${token}`}})
         .catch(err => console.log(err))
+        setModule({moduleTitle: ''})
     }
 
     const deleteModule = (moduleId) => {
@@ -192,6 +193,10 @@ export const ModuleContextProvider = ({ children }) => {
         axios.patch(`https://ar-filter-frequency-app.herokuapp.com/api/module/${theoryId}/update-theory`, data,
         {headers: {"Authorization" : `Bearer ${token}`}})
         .catch(err => console.log(err))
+
+        setTheory({title: '',})
+        setTheoryDescription('')
+        setImage(null)
     }
 
 
@@ -244,6 +249,11 @@ export const ModuleContextProvider = ({ children }) => {
         {headers: {"Authorization" : `Bearer ${token}`, 'Access-Control-Allow-Origin': '*'}})
         .catch(err => console.log(err))
         setLabNum(labNum + 1)
+
+        setLab({title: ''})
+        setTheoryDescription('')
+        setImage(null)
+        setlabModel(null)
     }
 
     const updateLab = (labId) => {
@@ -254,6 +264,11 @@ export const ModuleContextProvider = ({ children }) => {
         axios.patch(`https://ar-filter-frequency-app.herokuapp.com/api/module/${labId}/update-lab`, data,
         {headers: {"Authorization" : `Bearer ${token}`}})
         .catch(err => console.log(err))
+
+        setLab({title: ''})
+        setTheoryDescription('')
+        setImage(null)
+        setlabModel(null)
     }
     
     const deleteLab = (moduleId, labId) => {
