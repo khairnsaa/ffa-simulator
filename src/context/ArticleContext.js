@@ -111,7 +111,9 @@ export const ArticleContextProvider = ({ children }) => {
             deleteArticle,
             editArticle,
             article,
-            updateArticle
+            updateArticle,
+            articleDescription,
+            image
         }}>
            {children} 
         </ArticleContext.Provider>

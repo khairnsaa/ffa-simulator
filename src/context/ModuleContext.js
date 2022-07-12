@@ -260,7 +260,8 @@ export const ModuleContextProvider = ({ children }) => {
         const data = new FormData()
         data.append("title", lab.title)
         data.append("description", theoryDescription)
-        data.append("image", image, image.name)
+        data.append("thumbnail", image, image.name)
+        data.append("model", labModel, labModel.name)
         axios.patch(`https://ar-filter-frequency-app.herokuapp.com/api/module/${labId}/update-lab`, data,
         {headers: {"Authorization" : `Bearer ${token}`}})
         .catch(err => console.log(err))

@@ -6,7 +6,17 @@ import { Editor } from '@tinymce/tinymce-react';
 
 const AddArticleForm = () => {
     const {id} = useParams()
-    const {handleChangeArticle, addArticle, handleDescription, handleImage, editArticle, article, updateArticle} = useContext(ArticleContext)
+    const {
+        handleChangeArticle,
+        addArticle, 
+        handleDescription, 
+        handleImage, 
+        editArticle, 
+        article, 
+        updateArticle, 
+        articleDescription,
+        image
+    } = useContext(ArticleContext)
     const navigate = useNavigate();
 
     const goBack = () => navigate(-1)
@@ -55,7 +65,6 @@ const AddArticleForm = () => {
                         className="input-image" 
                         accept="image/*" 
                         onChange={handleImage}
-                        value={article.image}
                     />
                 </section>
                 <input 
@@ -69,7 +78,7 @@ const AddArticleForm = () => {
                 />
                 <Editor
                     textareaName="description"
-                    value={article.description}
+                    value={articleDescription}
                     onEditorChange={(newValue, editor) => handleDescription(newValue)}
                     apiKey="8dotdc22kact10o1q74xf3s2eurvoappeug7wgxa90gwt1sq"
                     onInit={(evt, editor) => editorRef.current = editor}
