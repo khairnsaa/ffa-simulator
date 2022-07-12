@@ -2,7 +2,6 @@ import '../../style/App.css';
 
 import { useContext, useEffect, useState } from 'react';
 import { ARContext } from '../../context/ARContext';
-import { PreviewObject } from '../../context/PreviewObject';
 import { ModuleContext } from '../../context/ModuleContext';
 import { useParams } from 'react-router-dom';
 import useCapture from '../../hooks/useCapture';
@@ -21,7 +20,6 @@ const ARPages = () => {
     let labTitle;
     const {modulId, labId} = useParams()
     const {activateAR} = useContext(ARContext)
-    const {showObject} = useContext(PreviewObject)
     const { captureOutput, capturefrequency, captureResponse } = useCapture()
     const {labList} = useContext(ModuleContext)
     
@@ -44,10 +42,6 @@ const ARPages = () => {
 
     useEffect(() => {
         drawAndCapture()
-        // eslint-disable-next-line
-        if(labList.length !== 0) labList.map(lab => {
-            if(lab.labId === labId) showObject(lab.modelAR)
-        })
     })
 
     const drawAndCapture = () => {
@@ -78,7 +72,9 @@ const ARPages = () => {
                         </section>
                         <div className="show-object">
                             <h2>susunan rangkaian pada lab ini</h2>
-                            <div className="canvas-container"></div>
+                            <div className="canvas-container">
+                                <img src={lab.thumbnailAR} alt="gambar rangkaian" />
+                            </div>
                         </div>
                         <button onClick={() => checkARSupport(lab.modelAR)} className='ar-btn btn-edited'>Start AR</button>
                     </div>
