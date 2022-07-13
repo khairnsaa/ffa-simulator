@@ -56,7 +56,7 @@ const ARPages = () => {
     const checkARSupport = async (model) => {
         const isArSessionSupported = navigator.xr && navigator.xr.isSessionSupported && await navigator.xr.isSessionSupported("immersive-ar");
         if (isArSessionSupported) activateAR(model)
-        else alert('kamera hp kamu gak support AR :\'(')
+        else alert('kamera hp/browser kamu gak support AR :\'( \n harap gunakan hp android dan browser chrome')
     }
 
     return (
