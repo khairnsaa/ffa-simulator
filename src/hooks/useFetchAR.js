@@ -53,7 +53,7 @@ const useFetchAR = (modulId, title, indikatorValue) => {
                     parseFloat(indikatorValue.kapasitorValue), 
                     parseFloat(indikatorValue.kapasitorTwoValue),
                 )
-            } else if(title.includes("Band Stop")) {
+            } else if(title.toUpperCase().includes("NOTCH")) {
                 BSFFormula(
                     parseFloat(indikatorValue.frequencyValue), 
                     parseFloat(indikatorValue.resistorValue), 

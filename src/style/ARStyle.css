@@ -116,26 +116,25 @@
 
 .place-btn{ margin: 0 0.5rem;}
 
-.place-btn, .close-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn{
+.place-btn, .close-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn, .modul-btn{
     padding: 0.8rem 0.9rem !important;
     transform: translateY(-0%);
     transition: 0.5s;
 }
-.place-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn{ flex: 1;}
+.place-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn, .modul-btn{ flex: 1;}
 
 .close-btn img { width: 1.5rem; }
 
 .place-btn img, 
 .open-btn img, 
 .rotate-btn img, 
-.run-btn img { width: 1.8rem;}
+.run-btn img, .modul-btn img { width: 1.8rem;}
 
 .frequency-btn p{
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--text-light);
 }
-
 
 .model-nav-btn{
     position: fixed;

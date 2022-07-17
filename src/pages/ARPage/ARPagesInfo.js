@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import useCapture from '../../hooks/useCapture';
 import useFetchAR from '../../hooks/useFetchAR';
 import parse from 'html-react-parser';
+import PopupInput from '../../components/PopupInput';
 
 // import icon
 import closeIcon from '../../asset/icons/close.svg'
@@ -14,7 +15,8 @@ import placeAR from '../../asset/icons/place.svg'
 import rotateLeftIcon from '../../asset/icons/rotate_right.svg'
 import rotateRightIcon from '../../asset/icons/rotate_left.svg'
 import runIcon from '../../asset/icons/run.svg'
-import PopupInput from '../../components/PopupInput';
+import ModulPopup from '../../components/ModulPopup';
+
 
 const ARPages = () => {
     let labTitle;
@@ -104,7 +106,7 @@ const ARPages = () => {
                             labList = {labList}
                             id = {labId}
                             setIndikatorValue = {setIndikatorValue}
-                        />   
+                        />
                     </div>
                     <div className="bottom-nav">
                         <button className='rotate-btn rotate-left btn-edited ar-session-btn'>
