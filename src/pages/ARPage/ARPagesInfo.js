@@ -15,7 +15,7 @@ import placeAR from '../../asset/icons/place.svg'
 import rotateLeftIcon from '../../asset/icons/rotate_right.svg'
 import rotateRightIcon from '../../asset/icons/rotate_left.svg'
 import runIcon from '../../asset/icons/run.svg'
-import ModulPopup from '../../components/ModulPopup';
+import PopupOsiloskop from '../../components/PopupOsiloskop';
 
 
 const ARPages = () => {
@@ -37,10 +37,14 @@ const ARPages = () => {
         lButterworth: 100,
         fcButterWorth: 1000
     })
+    const [osiloskopValue, setOsiloskopValue] = useState({
+        voltDivValue: 2,
+        timeDivValue: 0.001
+    })
 
     // eslint-disable-next-line
     if(labList.length !== 0) labList.map((lab) => { if(lab.labId === labId) labTitle = lab.title;})
-    const {checkLab} = useFetchAR(modulId, labTitle, indikatorValue)
+    const {checkLab} = useFetchAR(modulId, labTitle, indikatorValue, osiloskopValue)
 
     useEffect(() => {
         drawAndCapture()
@@ -97,7 +101,7 @@ const ARPages = () => {
                 <div className="navigation">
 
                     <div className="top-nav">
-                        <button style={{"marginRight": "0.5rem"}} className="run-btn btn-edited ar-session-btn">
+                        <button className="run-btn btn-edited ar-session-btn">
                             <img src={runIcon} alt="" />
                         </button>
                         <PopupInput 
@@ -106,6 +110,11 @@ const ARPages = () => {
                             labList = {labList}
                             id = {labId}
                             setIndikatorValue = {setIndikatorValue}
+                        />
+                        <PopupOsiloskop 
+                            osiloskopValue = {osiloskopValue}
+                            setOsiloskopValue = {setOsiloskopValue}
+                            drawAndCapture={drawAndCapture}
                         />
                     </div>
                     <div className="bottom-nav">

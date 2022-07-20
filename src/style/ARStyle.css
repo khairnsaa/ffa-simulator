@@ -114,21 +114,22 @@
     justify-content: center;
 }
 
-.place-btn{ margin: 0 0.5rem;}
+.place-btn, .frequency-btn{ margin: 0 0.5rem;}
 
-.place-btn, .close-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn, .modul-btn{
+.place-btn, .close-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn, .osiloskop-btn{
     padding: 0.8rem 0.9rem !important;
     transform: translateY(-0%);
     transition: 0.5s;
 }
-.place-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn, .modul-btn{ flex: 1;}
+.place-btn, .open-btn, .rotate-btn, .run-btn, .frequency-btn, .osiloskop-btn{ flex: 1;}
 
 .close-btn img { width: 1.5rem; }
 
 .place-btn img, 
 .open-btn img, 
 .rotate-btn img, 
-.run-btn img, .modul-btn img { width: 1.8rem;}
+.run-btn img, .osiloskop-btn img { width: 1.8rem;}
+
 
 .frequency-btn p{
     font-size: 1.3rem;
@@ -238,7 +239,7 @@
     margin: 1rem;
 }
 
-.change-freq-btn{
+.change-freq-btn, .change-osiloskop-btn{
     outline: none;
     text-align: center;
     border: 0.1rem solid rgba(0, 0, 0, 0.5);
@@ -247,7 +248,7 @@
     border-radius: 0.3rem;
 }
 
-.keterangan{
+.keterangan, .keterangan-osiloskop{
     margin-top: 0.9rem;
     text-align: center;
     color: var(--text-dark);
