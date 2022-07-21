@@ -10,10 +10,30 @@ export const OutputResponseProvider = ({children}) => {
         const canvasContext=canvas.getContext("2d");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        for(let i = 0; i <= Math.floor(canvas.width /2); i++){
+
+        // legend for X and Y
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, 20);
+        canvasContext.lineTo(10, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const gainText = `Gain (dB)`
+        canvasContext.fillText(gainText, 10, 15);
+
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, canvas.height - 15);
+        canvasContext.lineTo(canvas.width-20, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const freqText = `F (Hz)`
+        canvasContext.fillText(freqText, canvas.width-35, canvas.height - 20);
+
+        for(let i = 10; i <= Math.floor(canvas.width /2); i++){
             canvasContext.beginPath();
             canvasContext.lineWidth = 3
-            canvasContext.moveTo(0, canvas.height/3);
+            canvasContext.moveTo(10, canvas.height/3);
             canvasContext.lineTo(i, canvas.height/3);
             canvasContext.stroke();
             if(i === Math.floor(canvas.width/2)){
@@ -22,7 +42,7 @@ export const OutputResponseProvider = ({children}) => {
                 canvasContext.moveTo(i, canvas.height/3);
                 canvasContext.lineTo(i+50, canvas.height - 20);
                 canvasContext.stroke();
-                canvasContext.font = "15px Arial";
+                canvasContext.font = "12px Arial";
                 const flow = `${fmin.toFixed(2)} Hz`
                 canvasContext.fillText(flow, i + 50, canvas.height);
                 // cutoff
@@ -30,7 +50,7 @@ export const OutputResponseProvider = ({children}) => {
                 canvasContext.moveTo(i, canvas.height/3);
                 canvasContext.lineTo(i, canvas.height - 20);
                 canvasContext.setLineDash([5, 3])
-                canvasContext.font = "15px Arial";
+                canvasContext.font = "12px Arial";
                 const frequency = `${freq.toFixed(2)} Hz`
                 canvasContext.fillText(frequency, i - 50, canvas.height);
                 canvasContext.stroke();
@@ -44,6 +64,24 @@ export const OutputResponseProvider = ({children}) => {
         const canvasContext=canvas.getContext("2d");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        // legend for X and Y
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, 20);
+        canvasContext.lineTo(10, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const gainText = `Gain (dB)`
+        canvasContext.fillText(gainText, 10, 15);
+
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, canvas.height - 15);
+        canvasContext.lineTo(canvas.width-20, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const freqText = `F (Hz)`
+        canvasContext.fillText(freqText, canvas.width-35, canvas.height - 20);
         for(let i = 0; i <= Math.floor(canvas.width /2); i++){
             canvasContext.beginPath();
             canvasContext.lineWidth = 3
@@ -56,7 +94,7 @@ export const OutputResponseProvider = ({children}) => {
                 canvasContext.moveTo(i, canvas.height/3);
                 canvasContext.lineTo(i-50, canvas.height - 20);
                 canvasContext.stroke();
-                canvasContext.font = "20px Arial";
+                canvasContext.font = "12px Arial";
                 const frequency = `${fmax.toFixed(1)} Hz`
                 canvasContext.fillText(frequency, i - 150, canvas.height);
                 // cutoff
@@ -64,7 +102,7 @@ export const OutputResponseProvider = ({children}) => {
                 canvasContext.moveTo(i, canvas.height/3);
                 canvasContext.lineTo(i, canvas.height - 20);
                 canvasContext.setLineDash([5, 3])
-                canvasContext.font = "20px Arial";
+                canvasContext.font = "12px Arial";
                 const frequencyCutoff = `${fc.toFixed(1)} Hz`
                 canvasContext.fillText(frequencyCutoff, i - 50, canvas.height);
                 canvasContext.stroke();
@@ -76,6 +114,25 @@ export const OutputResponseProvider = ({children}) => {
         const canvasContext=canvas.getContext("2d");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        // legend for X and Y
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, 20);
+        canvasContext.lineTo(10, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const gainText = `Gain (dB)`
+        canvasContext.fillText(gainText, 10, 15);
+
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, canvas.height - 15);
+        canvasContext.lineTo(canvas.width-20, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const freqText = `F (Hz)`
+        canvasContext.fillText(freqText, canvas.width-35, canvas.height - 20);
+
         // Draw the pass band line.
         canvasContext.beginPath();
         canvasContext.lineWidth = 3
@@ -88,7 +145,7 @@ export const OutputResponseProvider = ({children}) => {
         canvasContext.moveTo((canvas.width/4), canvas.height/3);
         canvasContext.lineTo(canvas.width/6, canvas.height-20);
         canvasContext.stroke();
-        canvasContext.font = "15px Arial";
+        canvasContext.font = "12px Arial";
         const frequencyLow = `${fmin.toFixed(1)} Hz`
         canvasContext.fillText(frequencyLow, (canvas.width/6-40), canvas.height);
 
@@ -97,7 +154,7 @@ export const OutputResponseProvider = ({children}) => {
         canvasContext.moveTo(canvas.width/2 + canvas.width/4, canvas.height/3);
         canvasContext.lineTo(canvas.width/2 + canvas.width/3, canvas.height-20);
         canvasContext.stroke();
-        canvasContext.font = "15px Arial";
+        canvasContext.font = "12px Arial";
         const frequencyHigh = `${fmax.toFixed(1)} Hz`
         canvasContext.fillText(frequencyHigh, canvas.width/2 + canvas.width/3-10, canvas.height);
 
@@ -107,7 +164,7 @@ export const OutputResponseProvider = ({children}) => {
         canvasContext.setLineDash([5, 4])
         canvasContext.lineTo(canvas.width/2+ canvas.width/4, canvas.height - 20);
         canvasContext.stroke();
-        canvasContext.font = "15px Arial";
+        canvasContext.font = "12px Arial";
         const frequencyCutoffHigh = `${fch.toFixed(1)} Hz`
         canvasContext.fillText(frequencyCutoffHigh, canvas.width/2+canvas.width/4-50, canvas.height);
 
@@ -119,7 +176,7 @@ export const OutputResponseProvider = ({children}) => {
         canvasContext.strokeStyle = '#000';
         canvasContext.lineTo((canvas.width/4), canvas.height - 20);
         canvasContext.stroke();
-        canvasContext.font = "15px Arial";
+        canvasContext.font = "12px Arial";
         const frequencyCutoffLow = `${fcl.toFixed(1)} Hz`
         canvasContext.fillText(frequencyCutoffLow, (canvas.width/4), canvas.height);
     }
@@ -129,6 +186,24 @@ export const OutputResponseProvider = ({children}) => {
         const canvasContext=canvas.getContext("2d");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        // legend for X and Y
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, 20);
+        canvasContext.lineTo(10, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const gainText = `Gain (dB)`
+        canvasContext.fillText(gainText, 10, 15);
+
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, canvas.height - 15);
+        canvasContext.lineTo(canvas.width-20, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const freqText = `F (Hz)`
+        canvasContext.fillText(freqText, canvas.width-35, canvas.height - 20);
 
         // Draw the red line.
         canvasContext.beginPath();
@@ -140,7 +215,7 @@ export const OutputResponseProvider = ({children}) => {
         // Draw the red line.
         canvasContext.beginPath();
         canvasContext.lineWidth = 3
-        canvasContext.moveTo(0, canvas.height/3);
+        canvasContext.moveTo(10, canvas.height/3);
         canvasContext.lineTo(canvas.width/3, canvas.height/3);
         canvasContext.stroke();
 
@@ -161,7 +236,7 @@ export const OutputResponseProvider = ({children}) => {
         canvasContext.moveTo(canvas.width/2, canvas.height);;
         canvasContext.setLineDash([5, 3])
         canvasContext.lineTo(canvas.width/2, 400);
-        canvasContext.font = "15px Arial";
+        canvasContext.font = "12px Arial";
         const fc = `${fn.toFixed(1)} Hz`
         canvasContext.fillText(fc, canvas.width/2, canvas.height);
     }
@@ -172,10 +247,28 @@ export const OutputResponseProvider = ({children}) => {
         const canvasContext=canvas.getContext("2d");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        for(let i = 0; i <= Math.floor(canvas.width /2); i++){
+        // legend for X and Y
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, 20);
+        canvasContext.lineTo(10, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const gainText = `Gain (dB)`
+        canvasContext.fillText(gainText, 10, 15);
+
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, canvas.height - 15);
+        canvasContext.lineTo(canvas.width-20, canvas.height - 15);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const freqText = `F (Hz)`
+        canvasContext.fillText(freqText, canvas.width-35, canvas.height - 20);
+        for(let i = 10; i <= Math.floor(canvas.width /2); i++){
             canvasContext.beginPath();
             canvasContext.lineWidth = 3
-            canvasContext.moveTo(0, canvas.height/3);
+            canvasContext.moveTo(10, canvas.height/3);
             canvasContext.lineTo(i, canvas.height/3);
             canvasContext.stroke();
             if(i === Math.floor(canvas.width/2)){
@@ -193,11 +286,28 @@ export const OutputResponseProvider = ({children}) => {
         const canvasContext=canvas.getContext("2d");
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        // legend for X and Y
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, 20);
+        canvasContext.lineTo(10, canvas.height);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const gainText = `Gain (dB)`
+        canvasContext.fillText(gainText, 10, 15);
 
         canvasContext.beginPath();
-        canvasContext.strokeStyle = '#f00';
         canvasContext.lineWidth = 3
-        canvasContext.moveTo(0, canvas.height/3);
+        canvasContext.moveTo(10, canvas.height);
+        canvasContext.lineTo(canvas.width-20, canvas.height);
+        canvasContext.stroke();
+        canvasContext.font = "12px Arial";
+        const freqText = `F (Hz)`
+        canvasContext.fillText(freqText, canvas.width-35, canvas.height - 10);
+
+        canvasContext.beginPath();
+        canvasContext.lineWidth = 3
+        canvasContext.moveTo(10, canvas.height/3);
         canvasContext.bezierCurveTo(canvas.width/6, canvas.height/60+ canvas.height/4, canvas.height/10, canvas.height/3 + canvas.height/10, canvas.width/3, canvas.height/3 );
         canvasContext.bezierCurveTo(canvas.height/3, canvas.height/60 + canvas.width/4, canvas.height/4, canvas.height + canvas.height/2, canvas.width + canvas.width/2, canvas.height);
         canvasContext.stroke();
