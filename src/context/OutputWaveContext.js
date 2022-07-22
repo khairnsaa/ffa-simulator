@@ -5,8 +5,6 @@ export const OutputWaveContext = createContext();
 
 export const OutputWaveContextProvider = ({ children }) => {
 
-    
-
     const draw = (frequency, volt, time) => {
         // get values directly from form
         let Vp=1

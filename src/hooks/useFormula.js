@@ -12,7 +12,7 @@ const useFormula = () => {
         responseLPF(fc, fc +100)
         if(fc > Number(freq)) draw(freq, voltDiv, timeDiv)
         else if(fc + 100 > Number(freq)) draw(Number(freq) +100, voltDiv, timeDiv)
-        else if(fc < Number(freq)) draw(0)
+        else if(fc < Number(freq)) draw(0, voltDiv, timeDiv)
         if(document.querySelector('.keterangan')) {
             document.querySelector('.keterangan').innerHTML = `
                 Berhasil diubah! <br> 
@@ -34,7 +34,7 @@ const useFormula = () => {
         responseLPF(fc, fc + 100)
         if(  fc > Number(freq)) draw(freq, voltDiv, timeDiv)
         else if(fc + 100 > Number(freq)) draw(Number(freq) +100, voltDiv, timeDiv)
-        else if(fc < Number(freq)) draw(0)
+        else if(fc < Number(freq)) draw(0, voltDiv, timeDiv)
         if(document.querySelector('.keterangan')) {
             document.querySelector('.keterangan').innerHTML = `Berhasil diubah! <br> fc: ${fc.toFixed(2)} Hz <br> R: ${resistor}Ω <br> Induktor: ${induktor} H`
         } else if(document.querySelector('.keterangan-osiloskop')) {
@@ -50,7 +50,7 @@ const useFormula = () => {
         responseHPF(fc, fc - 100)
         if(fc < Number(freq)) draw(freq, voltDiv, timeDiv)
         else if(fc - 100 < Number(freq)) draw(freq, voltDiv, timeDiv)
-        else if(fc > Number(freq)) draw(0)
+        else if(fc > Number(freq)) draw(0, voltDiv, timeDiv)
         if(document.querySelector('.keterangan')) {
             document.querySelector('.keterangan').innerHTML = `Berhasil diubah! <br> fc: ${fc.toFixed(2)} Hz <br> R: ${resistor}Ω <br> kapasitor: ${capacitor} F`
         } else if(document.querySelector('.keterangan-osiloskop')) {
@@ -67,7 +67,7 @@ const useFormula = () => {
         responseHPF(fc, fc - 100)
         if(fc < Number(freq)) draw(freq, voltDiv, timeDiv)
         else if(fc - 100 < Number(freq)) draw(freq, voltDiv, timeDiv)
-        else if(fc > Number(freq)) draw(0)
+        else if(fc > Number(freq)) draw(0, voltDiv, timeDiv)
         if(document.querySelector('.keterangan')) {
             document.querySelector('.keterangan').innerHTML = `Berhasil diubah! <br> fc: ${fc.toFixed(2)} Hz <br> R: ${resistor}Ω <br> induktor: ${induktor} F`
         } else if(document.querySelector('.keterangan-osiloskop')) {
@@ -86,9 +86,9 @@ const useFormula = () => {
         console.log(voltDiv, timeDiv)
         if(fcl < Number(freq) && fch > Number(freq)) draw(freq, voltDiv, timeDiv)
         else if(fcl-100 < Number(freq)  && fch+100> Number(freq)) draw(freq, voltDiv, timeDiv)
-        else if(fcl > Number(freq) && fch > Number(freq)) draw(0)
-        else if(fcl < Number(freq) && fch < Number(freq)) draw(0)
-        else if(fcl > Number(freq)  && fch < Number(freq)) draw(0)
+        else if(fcl > Number(freq) && fch > Number(freq)) draw(0, voltDiv, timeDiv)
+        else if(fcl < Number(freq) && fch < Number(freq)) draw(0, voltDiv, timeDiv)
+        else if(fcl > Number(freq)  && fch < Number(freq)) draw(0, voltDiv, timeDiv)
 
         if(document.querySelector('.keterangan')) {
             document.querySelector('.keterangan').innerHTML = `
@@ -112,11 +112,11 @@ const useFormula = () => {
     const BSFFormula = (freq, resistor, capacitor, voltDiv, timeDiv) => {
         fc = 1/(2*Math.PI*resistor*capacitor)
         responseBSF(fc)
-        if(fc === Number(freq)) draw(0)
+        if(fc === Number(freq)) draw(0, voltDiv, timeDiv)
         else  if(fc < Number(freq)) draw(freq, voltDiv, timeDiv)
-        else if(fc - 100 < Number(freq)) draw(0)
+        else if(fc - 100 < Number(freq)) draw(0, voltDiv, timeDiv)
         else if(fc > Number(freq)) draw(freq, voltDiv, timeDiv)
-        else if(fc + 100 > Number(freq)) draw(0) 
+        else if(fc + 100 > Number(freq)) draw(0, voltDiv, timeDiv) 
         
         if(document.querySelector('.keterangan')) {
             document.querySelector('.keterangan').innerHTML = `Berhasil diubah! <br> fc: ${fc.toFixed(2)} Hz <br> R: ${resistor}Ω <br> Kapasitor: ${capacitor} F`
@@ -162,7 +162,7 @@ const useFormula = () => {
         responseChebychev()
         if(fc > Number(fin)) draw(fin, voltDiv, timeDiv)
         else if(fc + 100 > Number(fin)) draw(Number(fin) +100, voltDiv, timeDiv)
-        else if(fc < Number(fin)) draw(0)
+        else if(fc < Number(fin)) draw(0, voltDiv, timeDiv)
         console.log('fin ' + fin)
         console.log('r ' + r)
         console.log('fc ' + fc)
