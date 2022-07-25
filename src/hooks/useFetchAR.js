@@ -8,8 +8,10 @@ const useFetchAR = (modulId, title, indikatorValue, osiloskopValue) => {
     const {fc, 
         LPFRCFormula, 
         HPFRCFormula, 
-        LPFRLFormula, 
-        HPFRLFormula, 
+        LPFRLFormula,
+        LPFLCFormula,
+        HPFRLFormula,
+        HPFLCFormula, 
         BPFFormula, 
         BSFFormula,
         ButterworthFormula,
@@ -37,6 +39,14 @@ const useFetchAR = (modulId, title, indikatorValue, osiloskopValue) => {
                     parseFloat(osiloskopValue.voltDivValue),
                     parseFloat(osiloskopValue.timeDivValue),
                 )
+            } else if(title.includes("LPF LC")) {
+                LPFLCFormula(
+                    parseFloat(indikatorValue.frequencyValue), 
+                    parseFloat(indikatorValue.kapasitorValue), 
+                    parseFloat(indikatorValue.induktorValue),
+                    parseFloat(osiloskopValue.voltDivValue),
+                    parseFloat(osiloskopValue.timeDivValue),
+                )
             } else if(title.includes("HPF RC")) {
                 HPFRCFormula(
                     parseFloat(indikatorValue.frequencyValue), 
@@ -53,7 +63,15 @@ const useFetchAR = (modulId, title, indikatorValue, osiloskopValue) => {
                     parseFloat(osiloskopValue.voltDivValue),
                     parseFloat(osiloskopValue.timeDivValue),
                 )
-            }  else if(title.includes("Band Pass")) {
+            } else if(title.includes("HPF LC")) {
+                HPFLCFormula(
+                    parseFloat(indikatorValue.frequencyValue), 
+                    parseFloat(indikatorValue.kapasitorValue), 
+                    parseFloat(indikatorValue.induktorValue),
+                    parseFloat(osiloskopValue.voltDivValue),
+                    parseFloat(osiloskopValue.timeDivValue),
+                )
+            } else if(title.includes("Band Pass")) {
                 BPFFormula(
                     parseFloat(indikatorValue.frequencyValue), 
                     parseFloat(indikatorValue.resistorValue), 

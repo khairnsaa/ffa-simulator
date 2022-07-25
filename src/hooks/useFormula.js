@@ -45,6 +45,25 @@ const useFormula = () => {
             `
         }
     }
+
+    const LPFLCFormula = (freq, kapasitor, induktor, voltDiv, timeDiv) => {
+        fc = 1/(2*Math.PI * (Math.sqrt(induktor*kapasitor)))
+        responseLPF(fc, fc + 100)
+        console.log(fc)
+        if(  fc > Number(freq)) draw(freq, voltDiv, timeDiv)
+        else if(fc + 100 > Number(freq)) draw(Number(freq) +100, voltDiv, timeDiv)
+        else if(fc < Number(freq)) draw(0, voltDiv, timeDiv)
+        if(document.querySelector('.keterangan')) {
+            document.querySelector('.keterangan').innerHTML = `Berhasil diubah! <br> fc: ${fc.toFixed(2)} Hz <br> kapasitor: ${kapasitor}F <br> Induktor: ${induktor} H`
+        } else if(document.querySelector('.keterangan-osiloskop')) {
+            document.querySelector('.keterangan-osiloskop').innerHTML = `
+                Berhasil diubah! <br> 
+                volt/div: ${voltDiv} V <br />
+                time/div: ${timeDiv} s
+            `
+        }
+    }
+
     const HPFRCFormula = (freq, resistor, capacitor, voltDiv, timeDiv) => {
         fc = 1/(2*Math.PI*resistor*capacitor)
         responseHPF(fc, fc - 100)
@@ -70,6 +89,23 @@ const useFormula = () => {
         else if(fc > Number(freq)) draw(0, voltDiv, timeDiv)
         if(document.querySelector('.keterangan')) {
             document.querySelector('.keterangan').innerHTML = `Berhasil diubah! <br> fc: ${fc.toFixed(2)} Hz <br> R: ${resistor}Ω <br> induktor: ${induktor} F`
+        } else if(document.querySelector('.keterangan-osiloskop')) {
+            document.querySelector('.keterangan-osiloskop').innerHTML = `
+                Berhasil diubah! <br> 
+                volt/div: ${voltDiv} V <br />
+                time/div: ${timeDiv} s
+            `
+        }
+    }
+
+    const HPFLCFormula = (freq, kapasitor, induktor, voltDiv, timeDiv) => {
+        fc = 1/(2*Math.PI * (Math.sqrt(induktor*kapasitor)))
+        responseHPF(fc, fc - 100)
+        if(fc < Number(freq)) draw(freq, voltDiv, timeDiv)
+        else if(fc - 100 < Number(freq)) draw(freq, voltDiv, timeDiv)
+        else if(fc > Number(freq)) draw(0, voltDiv, timeDiv)
+        if(document.querySelector('.keterangan')) {
+            document.querySelector('.keterangan').innerHTML = `Berhasil diubah! <br> fc: ${fc.toFixed(2)} Hz <br> kapasitor: ${kapasitor}F <br> induktor: ${induktor} F`
         } else if(document.querySelector('.keterangan-osiloskop')) {
             document.querySelector('.keterangan-osiloskop').innerHTML = `
                 Berhasil diubah! <br> 
@@ -190,8 +226,10 @@ const useFormula = () => {
     return {
         LPFRCFormula,
         LPFRLFormula,
+        LPFLCFormula,
         HPFRCFormula,
         HPFRLFormula,
+        HPFLCFormula,
         BPFFormula,
         BSFFormula,
         ButterworthFormula,

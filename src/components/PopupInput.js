@@ -64,11 +64,19 @@ const PopupInput = ({drawAndCapture, indikatorValue, labList, id, setIndikatorVa
                     <label htmlFor="indikator">Indikator: </label>
                     <select name="indikator" id="indikator" onChange={handleRadio}>
                         <option value="frekuensi">frekuensi</option>
-                        <option value="resistor">Resistor</option>
+                        {/* <option value="resistor">Resistor</option> */}
                         {
                             labList.length !== 0 ?
                             labList.map(lab => lab.labId === id ? (
-                                lab.title.toUpperCase().includes('RL') ? 
+                                lab.title.toUpperCase().includes('LC') ? 
+                                <option value="kapasitor">Kapasitor</option> :
+                                <option value="resistor">Resistor</option>
+                            ) : <></>) : <></>
+                        }
+                        {
+                            labList.length !== 0 ?
+                            labList.map(lab => lab.labId === id ? (
+                                lab.title.toUpperCase().includes('RL') || lab.title.toUpperCase().includes('LC') ? 
                                 <option value="induktor">Induktor</option> :
                                 lab.title.toUpperCase().includes('BUTTERWORTH') || lab.title.toUpperCase().includes('CHEBY') ?
                                 <option value="fc">Fc</option> : <option value="kapasitor">Kapasitor</option>

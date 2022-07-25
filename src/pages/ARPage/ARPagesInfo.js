@@ -82,7 +82,7 @@ const ARPages = () => {
                                 <img src={lab.thumbnailAR} alt="gambar rangkaian" />
                             </div>
                         </div>
-                        <button onClick={() => checkARSupport(lab.modelAR)} className='ar-btn btn-edited'>Start AR</button>
+                        <button onClick={() => activateAR(lab.modelAR)} className='ar-btn btn-edited'>Start AR</button>
                     </div>
                 ) : <></>)
                 : <div id='loading'></div>
